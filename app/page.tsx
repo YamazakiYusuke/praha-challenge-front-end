@@ -37,14 +37,14 @@ export default function Home() {
           </div>
         </nav>
         <div className="container mx-auto max-w-6xl">
-          <div className="bg-white my-3 p-5 shadow mt-5">
-            <h2 className="text-3xl text-lg mb-4">このサイトはテスト自動化の学習用の練習サイトです。</h2>
+          <div className="bg-white my-3 p-8 shadow mt-5">
+            <h2 className="text-3xl mb-4">このサイトはテスト自動化の学習用の練習サイトです。</h2>
             <p className="text-base mb-4">Seleniumなどのブラウザテスト自動化を学習したい方が、実際にテストスクリプトを実行するための<strong>テスト対象サイト</strong>として作成されています。</p>
             <p className="text-base mb-4">書籍やブログなどでのサンプルやデモにもお使いいただけます。ライセンスは<a className="text-blue-500" href="https://github.com/testplanisphere/hotel-example-site/blob/master/LICENSE">MIT License</a>です。</p>
             <p className="text-base">自動テストの学習を目的として作成されていますが、テスト設計や技法の学習に使うことも可能です。</p>
           </div>
-          <div className="bg-white my-3 p-5 shadow">
-            <h3 className="text-3xl my-4 text-lg">サイトの構成</h3>
+          <div className="bg-white my-3 p-8 shadow">
+            <h3 className="text-3xl mb-4">サイトの構成</h3>
             <p className="text-base">ホテルの予約サイトを模した作りになっています。ログイン・会員登録・ホテルの宿泊予約のそれぞれの入力フォームを用意しています。レスポンシブデザインに対応しているためモバイルブラウザでも表示できます。</p>
             <h4 className="text-2xl my-4 text-md">ご利用上の注意</h4>
             <ul className="list-disc pl-5 text-base ml-6">
@@ -131,8 +131,8 @@ export default function Home() {
             </table>
             <p className="text-left ml-2 text-gray-500">登録済みユーザ</p>
           </div>
-          <div className="bg-white my-3 p-5 shadow">
-            <h3 className="text-3xl my-4 text-lg ">サンプルコード</h3>
+          <div className="bg-white my-3 p-8 shadow">
+            <h3 className="text-3xl mb-4">サンプルコード</h3>
             <p className="text-base mb-3">このサイトをテスト対象とした自動テストスクリプトです。学習の参考としてお使いください。</p>
             <div className="grid grid-cols-4">
               <div className="card shadow rounded mr-7 border">
