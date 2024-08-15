@@ -17,16 +17,16 @@ export default function Home() {
           <div className="container mx-auto flex justify-center items-center max-w-6xl">
             <ul className="lg:flex lg:justify-between text-base text-white pt-4 lg:pt-0">
             <li className="px-8 active flex items-center">
-              <Link href="/" className="text-gray-400 hover:text-white">ホーム</Link>
+              <Link href="/pages/Home" className="text-gray-400 hover:text-white">ホーム</Link>
             </li>
             <li className="px-8 flex items-center">
-              <Link href="/plans" className="text-gray-400 hover:text-white">宿泊予約</Link>
+              <Link href="/pages/Plans" className="text-gray-400 hover:text-white">宿泊予約</Link>
             </li>
             <li className="px-8 block flex items-center" id="signup-holder">
-              <Link href="/signup" className="text-gray-400 hover:text-white">会員登録</Link>
+              <Link href="/pages/Signup" className="text-gray-400 hover:text-white">会員登録</Link>
             </li>
             <li className="px-8 hidden flex items-center" id="mypage-holder">
-              <Link href="/mypage" className="text-gray-400 hover:text-white">マイページ</Link>
+              <Link href="/pages/Mypage" className="text-gray-400 hover:text-white">マイページ</Link>
             </li>
             <li className="bg-transparent rounded px-8 block flex items-center" id="login-holder">
               <button className="bg-transparent hover:bg-gray-500 text-gray-500 hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
