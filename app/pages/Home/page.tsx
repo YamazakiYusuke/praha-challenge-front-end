@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from '@/app/components/Layout/Footer';
 import Navigation from '@/app/components/Layout/Navigation';
 import NavigationButton from '@/app/components/UI/NavigationButton';
@@ -7,9 +9,11 @@ import HomeHeader from '@/app/pages/Home/components/HomeHeader';
 import HomeTable from '@/app/pages/Home/components/HomeTable';
 import SampleCodeCard from '@/app/pages/Home/components/InfoCard';
 import HomeCard2 from '@/app/pages/Home/components/SampleCodeCard';
+import useHomeState from '@/app/pages/Home/useHomeState';
 import Head from 'next/head';
 
 export default function Home() {
+  const { state } = useHomeState();
   return (
     <>
       <Head>
@@ -82,12 +86,7 @@ export default function Home() {
             <div className="my-4">
               <p className="text-base"><a href="/about" target="_blank" className="text-blue-500">より詳しい解説はこちら（研修を作る方向け）</a></p>
             </div>
-            <HomeTable data={[
-              { email: "ichiro@example.com", password: "password", rank: "プレミアム会員" },
-              { email: "sakura@example.com", password: "pass1234", rank: "一般会員" },
-              { email: "jun@example.com", password: "pa55w0rd!", rank: "プレミアム会員" },
-              { email: "yoshiki@example.com", password: "pass-pass", rank: "一般会員" }
-            ]} />
+            <HomeTable data={state.userData} />
 
             <p className="text-left ml-2 text-gray-500">登録済みユーザ</p>
           </SampleCodeCard>

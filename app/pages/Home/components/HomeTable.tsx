@@ -1,9 +1,4 @@
-
-type UserData = {
-  email: string;
-  password: string;
-  rank: string;
-};
+import { UserData } from '@/app/pages/Home/useHomeState';
 
 export default function HomeTable({ data }: { data: UserData[] }) {
   return (
