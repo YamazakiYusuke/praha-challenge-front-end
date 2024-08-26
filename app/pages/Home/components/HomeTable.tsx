@@ -1,4 +1,4 @@
-import { UserData } from '@/app/pages/Home/useHomeState';
+import { UserData } from '@/app/hooks/pageHooks/useHomeState';
 
 export default function HomeTable({ data }: { data: UserData[] }) {
   return (

@@ -4,12 +4,12 @@ import Footer from '@/app/components/Layout/Footer';
 import Navigation from '@/app/components/Layout/Navigation';
 import NavigationButton from '@/app/components/UI/NavigationButton';
 import NavigationItem from '@/app/components/UI/NavigationItem';
+import useHomeState from '@/app/hooks/pageHooks/useHomeState';
 import HomeGridItem from '@/app/pages/Home/components/HomeGridItem';
 import HomeHeader from '@/app/pages/Home/components/HomeHeader';
 import HomeTable from '@/app/pages/Home/components/HomeTable';
 import SampleCodeCard from '@/app/pages/Home/components/InfoCard';
 import HomeCard2 from '@/app/pages/Home/components/SampleCodeCard';
-import useHomeState from '@/app/pages/Home/useHomeState';
 import Head from 'next/head';
 
 export default function Home() {
