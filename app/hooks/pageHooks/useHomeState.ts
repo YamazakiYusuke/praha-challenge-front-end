@@ -1,13 +1,8 @@
 "use client";
 
 import useUsersState from '@/app/hooks/usersState';
+import { UserTableData } from '@/app/pages/Home/components/HomeTable';
 import { useEffect, useState } from 'react';
-
-export interface UserTableData {
-  email: string;
-  password: string;
-  rank: string;
-}
 
 interface HomeState {
   userData: UserTableData[];
