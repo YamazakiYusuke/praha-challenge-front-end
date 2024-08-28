@@ -1,5 +1,5 @@
 
-export default function SampleCodeCard({
+export default function InfoCard({
   title,
   children,
 }: Readonly<{

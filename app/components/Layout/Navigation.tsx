@@ -12,7 +12,7 @@ export default function Navigation({
   return (
     <nav className="bg-gray-800 py-2 h-20 flex items-center">
       <div className="container mx-auto flex justify-center items-center max-w-6xl">
-        <ul className="lg:flex lg:justify-between text-base text-white pt-4 lg:pt-0">
+        <ul className="flex justify-between text-base text-white pt-4 pt-0">
           {children}
         </ul>
       </div>

@@ -8,7 +8,7 @@ import useHomeState from '@/app/hooks/pageHooks/useHomeState';
 import HomeGridItem from '@/app/pages/Home/components/HomeGridItem';
 import HomeHeader from '@/app/pages/Home/components/HomeHeader';
 import HomeTable from '@/app/pages/Home/components/HomeTable';
-import SampleCodeCard from '@/app/pages/Home/components/InfoCard';
+import InfoCard from '@/app/pages/Home/components/InfoCard';
 import HomeCard2 from '@/app/pages/Home/components/SampleCodeCard';
 import Head from 'next/head';
 
@@ -31,13 +31,13 @@ export default function Home() {
           <NavigationButton title="ログイン" id="login-holder" />
         </Navigation>
         <div className="container mx-auto max-w-6xl">
-          <SampleCodeCard title="このサイトはテスト自動化の学習用の練習サイトです。">
+          <InfoCard title="このサイトはテスト自動化の学習用の練習サイトです。">
             <p className="text-base mb-4">Seleniumなどのブラウザテスト自動化を学習したい方が、実際にテストスクリプトを実行するための<strong>テスト対象サイト</strong>として作成されています。</p>
             <p className="text-base mb-4">書籍やブログなどでのサンプルやデモにもお使いいただけます。ライセンスは<a className="text-blue-500" href="https://github.com/testplanisphere/hotel-example-site/blob/master/LICENSE">MIT License</a>です。</p>
             <p className="text-base">自動テストの学習を目的として作成されていますが、テスト設計や技法の学習に使うことも可能です。</p>
-          </SampleCodeCard>
+          </InfoCard>
 
-          <SampleCodeCard title="サイトの構成">
+          <InfoCard title="サイトの構成">
             <p className="text-base">ホテルの予約サイトを模した作りになっています。ログイン・会員登録・ホテルの宿泊予約のそれぞれの入力フォームを用意しています。レスポンシブデザインに対応しているためモバイルブラウザでも表示できます。</p>
             <h4 className="text-2xl my-4">ご利用上の注意</h4>
             <ul className="list-disc pl-5 text-base ml-6">
@@ -89,9 +89,9 @@ export default function Home() {
             <HomeTable data={state.userData} />
 
             <p className="text-left ml-2 text-gray-500">登録済みユーザ</p>
-          </SampleCodeCard>
+          </InfoCard>
 
-          <SampleCodeCard title="サンプルコード">
+          <InfoCard title="サンプルコード">
             <p className="text-base mb-3">このサイトをテスト対象とした自動テストスクリプトです。学習の参考としてお使いください。</p>
             <div className="grid grid-cols-4">
               <HomeCard2
@@ -164,7 +164,7 @@ export default function Home() {
                 }}
               />
             </div>
-          </SampleCodeCard>
+          </InfoCard>
         </div>
         <Footer />
         <script src="/dist/index.bundle.js"></script>

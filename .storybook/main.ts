@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import path from 'path';
 
 const config: StorybookConfig = {
   stories: [
@@ -17,5 +18,19 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ["..\\public"],
+  webpackFinal: async (config) => {
+    if (!config.module) {
+      config.module = { rules: [] };
+    }
+    if (!config.module.rules) {
+      config.module.rules = [];
+    }
+    config.module.rules.push({
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader', 'postcss-loader'],
+      include: path.resolve(__dirname, '../'),
+    });
+    return config;
+  },
 };
 export default config;

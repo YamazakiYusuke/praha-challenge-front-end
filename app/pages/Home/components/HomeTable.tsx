@@ -1,6 +1,10 @@
-import { UserData } from '@/app/hooks/pageHooks/useHomeState';
+export interface UserTableData {
+  email: string;
+  password: string;
+  rank: string;
+}
 
-export default function HomeTable({ data }: { data: UserData[] }) {
+export default function HomeTable({ data }: { data: UserTableData[] }) {
   return (
     <table className="table-auto my-3 w-full">
       <thead>
