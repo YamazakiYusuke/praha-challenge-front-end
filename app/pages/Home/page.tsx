@@ -167,7 +167,6 @@ export default function Home() {
           </InfoCard>
         </div>
         <Footer />
-        <script src="/dist/index.bundle.js"></script>
       </div>
     </>
   );
