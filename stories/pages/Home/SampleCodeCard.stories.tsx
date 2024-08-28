@@ -10,7 +10,6 @@ type Story = StoryObj<typeof SampleCodeCard>;
 
 export const Default: Story = {
   args: {
-
     header: "Java開発者向け",
     title: "selenide",
     framework: {

@@ -1,10 +1,10 @@
 import HomeTable from '@/app/pages/Home/components/HomeTable';
-import { Meta, StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
 export default {
   title: 'Pages/Home/HomeTable',
   component: HomeTable,
-} as Meta;
+};
 
 type Story = StoryObj<typeof HomeTable>;
 

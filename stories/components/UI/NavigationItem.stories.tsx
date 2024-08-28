@@ -1,12 +1,10 @@
 import NavigationItem from '../../../app/components/UI/NavigationItem';
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof NavigationItem> = {
+export default {
   title: 'Components/UI/NavigationItem',
   component: NavigationItem,
 };
-
-export default meta;
 
 type Story = StoryObj<typeof NavigationItem>;
 

@@ -1,10 +1,10 @@
 import InfoCard from '@/app/pages/Home/components/InfoCard';
-import { Meta, StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
 export default {
   title: 'Pages/Home/InfoCard',
   component: InfoCard,
-} as Meta;
+};
 
 type Story = StoryObj<typeof InfoCard>;
 

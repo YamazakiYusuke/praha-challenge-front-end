@@ -1,12 +1,10 @@
 import HomeHeader from '@/app/pages/Home/components/HomeHeader';
-import { Meta, StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof HomeHeader> = {
+export default {
   title: 'Pages/Home/HomeHeader',
   component: HomeHeader,
 };
-
-export default meta;
 
 type Story = StoryObj<typeof HomeHeader>;
 
