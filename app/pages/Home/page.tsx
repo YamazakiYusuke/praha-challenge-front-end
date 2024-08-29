@@ -5,6 +5,7 @@ import Navigation from '@/app/components/Layout/Navigation';
 import NavigationButton from '@/app/components/UI/NavigationButton';
 import NavigationItem from '@/app/components/UI/NavigationItem';
 import useHomeState from '@/app/hooks/pageHooks/useHomeState';
+import useWindowSize, { BreakpointValues } from '@/app/hooks/useWindowSize';
 import HomeGridItem from '@/app/pages/Home/components/HomeGridItem';
 import HomeHeader from '@/app/pages/Home/components/HomeHeader';
 import HomeTable from '@/app/pages/Home/components/HomeTable';
@@ -14,6 +15,7 @@ import Head from 'next/head';
 
 export default function Home() {
   const { state } = useHomeState();
+  const windowSize = useWindowSize();
   return (
     <>
       <Head>
@@ -22,12 +24,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
       <div className="bg-gray-100">
-        <HomeHeader title="HOTEL PLANISPHERE" />
-        <Navigation>
+        <HomeHeader title="HOTEL PLANISPHERE" isVisible={windowSize.moreThan(BreakpointValues.MD)} />
+        <Navigation windowSize={windowSize}>
           <NavigationItem title="ホーム" path="/pages/Home" />
           <NavigationItem title="宿泊予約" path="/pages/Plans" />
           <NavigationItem title="会員登録" path="/pages/Signup" />
-          <NavigationItem title="マイページ" path="/pages/Mypage" />
           <NavigationButton title="ログイン" id="login-holder" />
         </Navigation>
         <div className="container mx-auto max-w-6xl">
@@ -54,7 +55,7 @@ export default function Home() {
               <li>このサイトを利用することによって生じた損害などにつきましては、一切の責任を負いません。</li>
             </ul>
             <h4 className="text-2xl my-4">構成の詳細</h4>
-            <div className="grid grid-cols-3 gap-4">
+            <div className={`grid ${windowSize.moreThan(BreakpointValues.MD) ? 'grid-cols-3' : 'grid-cols-1'} gap-4`}>
               <HomeGridItem
                 title="ログイン画面"
                 content="シンプルなテキストインプットとボタンの画面です。ログイン情報はCookieに保存されます。会員登録画面で保存したユーザの他、登録済みのユーザ（下記）があります。"
@@ -69,7 +70,7 @@ export default function Home() {
               />
             </div>
             <hr className="my-5" />
-            <div className="grid grid-cols-3 gap-4">
+            <div className={`grid ${windowSize.moreThan(BreakpointValues.MD) ? 'grid-cols-3' : 'grid-cols-1'} gap-4`}>
               <HomeGridItem
                 title="宿泊プラン一覧画面"
                 content="「宿泊予約」のメニューから表示できる画面です。表示されるプランは「未ログイン」「一般会員」「プレミアム会員」によって変わります。プラン情報はAjaxで非同期に読み込まれます（トップの一つを除く）。"
@@ -93,7 +94,7 @@ export default function Home() {
 
           <InfoCard title="サンプルコード">
             <p className="text-base mb-3">このサイトをテスト対象とした自動テストスクリプトです。学習の参考としてお使いください。</p>
-            <div className="grid grid-cols-4">
+            <div className={`grid ${windowSize.moreThan(BreakpointValues.MD) ? 'grid-cols-4' : 'grid-cols-1'}`}>
               <HomeCard2
                 header="Java開発者向け"
                 title="selenide"
