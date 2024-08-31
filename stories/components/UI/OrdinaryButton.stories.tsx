@@ -87,3 +87,41 @@ export const LargeButton: Story = {
   },
 };
 
+// 「応募する」の文言が表示された青色のmediumなボタン
+export const ApplyButton: Story = {
+  args: {
+    children: [
+      <p>応募する</p>,
+    ],
+    color: OrdinaryButtonBackgroundColor.BLUE,
+    size: OrdinaryButtonSize.MEDIUM,
+    disabled: false,
+    onClick: () => alert('Apply Button Clicked'),
+  },
+};
+
+// 「削除する」の文言が表示された赤色のsmallなボタン
+export const DeleteButton: Story = {
+  args: {
+    children: [
+      <p>削除する</p>,
+    ],
+    color: OrdinaryButtonBackgroundColor.RED,
+    size: OrdinaryButtonSize.SMALL,
+    disabled: false,
+    onClick: () => alert('Delete Button Clicked'),
+  },
+};
+
+// 上記「削除する」ボタンの押下不可になったバージョン（disalbed = true）
+export const DisabledDeleteButton: Story = {
+  args: {
+    children: [
+      <p>削除する</p>,
+    ],
+    color: OrdinaryButtonBackgroundColor.RED,
+    size: OrdinaryButtonSize.SMALL,
+    disabled: true,
+    onClick: () => alert('Delete Button Clicked'),
+  },
+};
