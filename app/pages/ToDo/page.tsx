@@ -28,7 +28,6 @@ export default function ToDo() {
           />
           <NavigationButton
             title="Add Task"
-            id="add-task-button"
             onClick={() => {
               if (inputRef.current && inputRef.current.value.trim() !== '') {
                 addTask(inputRef.current.value);
@@ -45,8 +44,7 @@ export default function ToDo() {
                     <span>{task.title}</span>
                     <div className="flex space-x-2">
                       <NavigationButton 
-                        title="Delete" 
-                        id={`delete-task-${task.id}`} 
+                        title="Delete"
                         onClick={() => {
                           deleteTask(task.id)
                         }}
