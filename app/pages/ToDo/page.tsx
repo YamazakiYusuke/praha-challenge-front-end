@@ -40,7 +40,7 @@ export default function ToDo() {
             {state.tasks.length > 0 ? (
               <ul>
                 {state.tasks.map((task) => (
-                  <li key={task.id} className="flex justify-between items-center p-2 border-b border-gray-300">
+                  <div className="flex justify-between items-center p-2 border-b border-gray-300">
                     <span>{task.title}</span>
                     <div className="flex space-x-2">
                       <NavigationButton 
@@ -50,7 +50,7 @@ export default function ToDo() {
                         }}
                       />
                     </div>
-                  </li>
+                  </div>
                 ))}
               </ul>
             ) : (
