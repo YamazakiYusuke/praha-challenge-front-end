@@ -28,7 +28,7 @@ export default function Home() {
           <NavigationItem title="宿泊予約" path="/pages/Plans" />
           <NavigationItem title="会員登録" path="/pages/Signup" />
           <NavigationItem title="マイページ" path="/pages/Mypage" />
-          <NavigationButton title="ログイン" id="login-holder" />
+          <NavigationButton title="ログイン" />
         </Navigation>
         <div className="container mx-auto max-w-6xl">
           <InfoCard title="このサイトはテスト自動化の学習用の練習サイトです。">
