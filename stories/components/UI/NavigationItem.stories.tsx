@@ -1,5 +1,5 @@
+import type { StoryObj } from '@storybook/react';
 import NavigationItem from '../../../app/components/UI/NavigationItem';
-import type { Meta, StoryObj } from '@storybook/react';
 
 export default {
   title: 'Components/UI/NavigationItem',
