@@ -1,9 +1,9 @@
 import Navigation from '@/app/components/Layout/Navigation';
-import type { Meta, StoryObj } from '@storybook/react';
-import NavigationItem from '@/app/components/UI/NavigationItem';
 import NavigationButton from '@/app/components/UI/NavigationButton';
+import NavigationItem from '@/app/components/UI/NavigationItem';
+import type { StoryObj } from '@storybook/react';
 
-export default  {
+export default {
   title: 'Components/Layout/Navigation',
   component: Navigation,
 };
@@ -17,7 +17,7 @@ export const Default: Story = {
       <NavigationItem key="plans" title="宿泊予約" path="/pages/Plans" />,
       <NavigationItem key="signup" title="会員登録" path="/pages/Signup" />,
       <NavigationItem key="mypage" title="マイページ" path="/pages/Mypage" />,
-      <NavigationButton key="login" title="ログイン" id="login-holder" />
+      <NavigationButton key="login" title="ログイン" />
     ],
   },
 };
