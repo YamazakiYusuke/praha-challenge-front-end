@@ -1,6 +1,7 @@
 import Navigation from '@/app/components/Layout/Navigation';
 import NavigationButton from '@/app/components/UI/NavigationButton';
 import NavigationItem from '@/app/components/UI/NavigationItem';
+import { BreakpointValues, WindowSize } from '@/app/hooks/useWindowSize';
 import type { StoryObj } from '@storybook/react';
 
 export default {
@@ -12,6 +13,7 @@ type Story = StoryObj<typeof Navigation>;
 
 export const Default: Story = {
   args: {
+    windowSize: new WindowSize(BreakpointValues.LG),
     children: [
       <NavigationItem key="home" title="ホーム" path="/pages/Home" />,
       <NavigationItem key="plans" title="宿泊予約" path="/pages/Plans" />,
