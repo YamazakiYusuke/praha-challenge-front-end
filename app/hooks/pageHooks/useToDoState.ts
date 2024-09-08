@@ -1,7 +1,6 @@
 "use client";
 
-import { randomUUID } from 'crypto';
-import { useState, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 
 interface Task {
   id: string;
@@ -12,28 +11,52 @@ interface ToDoState {
   tasks: Task[];
 }
 
+type Action =
+  | { type: 'ADD_TASK'; title: string }
+  | { type: 'DELETE_TASK'; id: string }
+  | { type: 'SET_TASKS'; tasks: Task[] };
+
+const initialState: ToDoState = { tasks: [] };
+
+const reducer = (state: ToDoState, action: Action): ToDoState => {
+  switch (action.type) {
+    case 'ADD_TASK':
+      return {
+        ...state,
+        tasks: [...state.tasks, { id: crypto.randomUUID(), title: action.title }],
+      };
+    case 'DELETE_TASK':
+      return {
+        ...state,
+        tasks: state.tasks.filter(task => task.id !== action.id),
+      };
+    case 'SET_TASKS':
+      return {
+        ...state,
+        tasks: action.tasks,
+      };
+    default:
+      return state;
+  }
+};
+
 const useToDoState = () => {
-  const [state, setState] = useState<ToDoState>({ tasks: [] });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    // This is where you might fetch initial data from an API or local storage
     const initialTasks: Task[] = [
       { id: crypto.randomUUID(), title: 'Sample Task 1' },
       { id: crypto.randomUUID(), title: 'Sample Task 2' },
     ];
-    setState({ tasks: initialTasks });
+    dispatch({ type: 'SET_TASKS', tasks: initialTasks });
   }, []);
 
   const addTask = (title: string) => {
-    setState(prevState => ({
-      tasks: [...prevState.tasks, { id: crypto.randomUUID(), title: title }]
-    }));
+    dispatch({ type: 'ADD_TASK', title });
   };
 
   const deleteTask = (id: string) => {
-    setState(prevState => ({
-      tasks: prevState.tasks.filter(task => task.id !== id)
-    }));
+    dispatch({ type: 'DELETE_TASK', id });
   };
 
   return { state, addTask, deleteTask };
