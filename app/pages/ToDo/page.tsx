@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { useRef } from 'react';
 
 export default function ToDo() {
-  const { state, addTask, startEditTask, finishEditTask, deleteTask } = useToDoState();
+  const { state, addTask, startEditTask, finishEditTask, deleteTask, switchSortTask } = useToDoState();
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <>
@@ -36,6 +36,11 @@ export default function ToDo() {
                 }
               }}
             />
+          </div>
+          <div className="flex justify-end mt-2">
+            <span onClick={switchSortTask} className="cursor-pointer">
+              {state.isSortAsc ? '↓: ASC' : '↑: DESC'}
+            </span>
           </div>
           <div className="mt-4">
             {state.tasks.length > 0 ? (
