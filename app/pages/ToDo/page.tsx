@@ -2,11 +2,12 @@
 
 import NavigationButton from '@/app/components/UI/NavigationButton';
 import useToDoState from '@/app/hooks/pageHooks/useToDoState';
+import ToDoListItem from '@/app/pages/ToDo/components/ToDoListItem';
 import Head from 'next/head';
 import { useRef } from 'react';
 
 export default function ToDo() {
-  const { state, addTask, deleteTask } = useToDoState();
+  const { state, addTask, startEditTask, finishEditTask, deleteTask } = useToDoState();
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <>
@@ -19,38 +20,34 @@ export default function ToDo() {
         <h1 className="text-4xl font-bold text-center ">ToDo List</h1>
         <div className="p-4">
           <div className="flex space-x-2">
-          <input
-            type="text"
-            id="new-task-input"
-            className="border p-2 flex-grow"
-            placeholder="Enter new task"
-            ref={inputRef}
-          />
-          <NavigationButton
-            title="Add Task"
-            onClick={() => {
-              if (inputRef.current && inputRef.current.value.trim() !== '') {
-                addTask(inputRef.current.value);
-                inputRef.current.value = '';
-              }
-            }}
-          />
+            <input
+              type="text"
+              id="new-task-input"
+              className="border p-2 flex-grow"
+              placeholder="Enter new task"
+              ref={inputRef}
+            />
+            <NavigationButton
+              title="Add Task"
+              onClick={() => {
+                if (inputRef.current && inputRef.current.value.trim() !== '') {
+                  addTask(inputRef.current.value);
+                  inputRef.current.value = '';
+                }
+              }}
+            />
           </div>
           <div className="mt-4">
             {state.tasks.length > 0 ? (
               <ul>
                 {state.tasks.map((task) => (
-                  <div className="flex justify-between items-center p-2 border-b border-gray-300" key={task.id}>
-                    <span>{task.title}</span>
-                    <div className="flex space-x-2">
-                      <NavigationButton 
-                        title="Delete"
-                        onClick={() => {
-                          deleteTask(task.id)
-                        }}
-                      />
-                    </div>
-                  </div>
+                  <ToDoListItem
+                    key={task.id}
+                    task={task}
+                    finishEditTask={finishEditTask}
+                    startEditTask={startEditTask}
+                    deleteTask={deleteTask}
+                  />
                 ))}
               </ul>
             ) : (
