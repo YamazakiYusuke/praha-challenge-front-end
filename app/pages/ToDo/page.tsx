@@ -33,6 +33,7 @@ export default function ToDo() {
                 if (inputRef.current && inputRef.current.value.trim() !== '') {
                   addTask(inputRef.current.value);
                   inputRef.current.value = '';
+                  inputRef.current.focus();
                 }
               }}
             />
