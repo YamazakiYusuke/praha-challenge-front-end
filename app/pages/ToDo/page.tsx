@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { useRef } from 'react';
 
 export default function ToDo() {
-  const { state, addTask, startEditTask, finishEditTask, deleteTask, switchSortTask } = useToDoState();
+  const { state, addTask, startEditTask, finishEditTask, deleteTask, toggleTaskDone, switchSortTask } = useToDoState();
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <>
@@ -17,7 +17,7 @@ export default function ToDo() {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       </Head>
       <div className="bg-gray-100 min-h-screen p-6">
-        <h1 className="text-4xl font-bold text-center ">ToDo List</h1>
+        <h1 className="text-4xl font-bold text-center">ToDo List</h1>
         <div className="p-4">
           <div className="flex space-x-2">
             <input
@@ -52,6 +52,7 @@ export default function ToDo() {
                     finishEditTask={finishEditTask}
                     startEditTask={startEditTask}
                     deleteTask={deleteTask}
+                    toggleTaskDone={toggleTaskDone}
                   />
                 ))}
               </ul>
