@@ -13,9 +13,9 @@ type HomeCard2Props = {
   codeLink: LinkData;
 };
 
-export default function HomeCard2({
-  header, title, framework, language, testingFramework, codeLink 
-}: Readonly<HomeCard2Props >) {
+export default function SampleCodeCard({
+  header, title, framework, language, testingFramework, codeLink
+}: Readonly<HomeCard2Props>) {
   return (
     <div className="card shadow rounded mr-7 border">
       <div className="card-header bg-gray-100 border-b p-3">{header}</div>

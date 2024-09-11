@@ -10,7 +10,7 @@ import HomeGridItem from '@/app/pages/Home/components/HomeGridItem';
 import HomeHeader from '@/app/pages/Home/components/HomeHeader';
 import HomeTable from '@/app/pages/Home/components/HomeTable';
 import InfoCard from '@/app/pages/Home/components/InfoCard';
-import HomeCard2 from '@/app/pages/Home/components/SampleCodeCard';
+import SampleCodeCard from '@/app/pages/Home/components/SampleCodeCard';
 import Head from 'next/head';
 
 export default function Home() {
@@ -95,7 +95,7 @@ export default function Home() {
           <InfoCard title="サンプルコード">
             <p className="text-base mb-3">このサイトをテスト対象とした自動テストスクリプトです。学習の参考としてお使いください。</p>
             <div className={`grid ${windowSize.moreThan(BreakpointValues.MD) ? 'grid-cols-4' : 'grid-cols-1'}`}>
-              <HomeCard2
+              <SampleCodeCard
                 header="Java開発者向け"
                 title="selenide"
                 framework={{
@@ -113,7 +113,7 @@ export default function Home() {
                 }}
               />
 
-              <HomeCard2
+              <SampleCodeCard
                 header="JavaScript開発者向け"
                 title="webdriverio"
                 framework={{
@@ -130,7 +130,7 @@ export default function Home() {
                   url: 'https://github.com/testplanisphere/hotel-example-webdriverio-ja'
                 }}
               />
-              <HomeCard2
+              <SampleCodeCard
                 header="Ruby開発者向け"
                 title="capybara"
                 framework={{
@@ -147,7 +147,7 @@ export default function Home() {
                   url: 'https://github.com/testplanisphere/hotel-example-capybara-ja'
                 }}
               />
-              <HomeCard2
+              <SampleCodeCard
                 header="Java開発者向け"
                 title="selenium4-java"
                 framework={{
