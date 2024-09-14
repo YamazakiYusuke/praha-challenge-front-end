@@ -6,6 +6,7 @@ export interface Task {
   id: string;
   title: string;
   isEditing: boolean;
+  isDone: boolean;
 }
 
 interface ToDoState {
@@ -19,6 +20,7 @@ type Action =
   | { type: 'SET_TASKS'; tasks: Task[] }
   | { type: 'START_EDIT_TASK'; id: string }
   | { type: 'FINISH_EDIT_TASK'; id: string; title: string }
+  | { type: 'TOGGLE_TASK_DONE'; id: string }
   | { type: 'SWITCH_SORT_TASK' }
   | { type: 'SORT_TASK' };
 
@@ -29,7 +31,7 @@ const reducer = (state: ToDoState, action: Action): ToDoState => {
     case 'ADD_TASK':
       return {
         ...state,
-        tasks: [...state.tasks, { id: crypto.randomUUID(), title: action.title, isEditing: false }],
+        tasks: [...state.tasks, { id: crypto.randomUUID(), title: action.title, isEditing: false, isDone: false }],
       };
     case 'START_EDIT_TASK':
       return {
@@ -49,6 +51,13 @@ const reducer = (state: ToDoState, action: Action): ToDoState => {
       return {
         ...state,
         tasks: state.tasks.filter(task => task.id !== action.id),
+      };
+    case 'TOGGLE_TASK_DONE':
+      return {
+        ...state,
+        tasks: state.tasks.map(task =>
+          task.id === action.id ? { ...task, isDone: !task.isDone } : task
+        ),
       };
     case 'SWITCH_SORT_TASK':
       return {
@@ -84,8 +93,8 @@ const useToDoState = () => {
 
   useEffect(() => {
     const initialTasks: Task[] = [
-      { id: crypto.randomUUID(), title: 'Sample Task 1', isEditing: false },
-      { id: crypto.randomUUID(), title: 'Sample Task 2', isEditing: false },
+      { id: crypto.randomUUID(), title: 'Sample Task 1', isEditing: false, isDone: false },
+      { id: crypto.randomUUID(), title: 'Sample Task 2', isEditing: false, isDone: false },
     ];
     dispatch({ type: 'SET_TASKS', tasks: initialTasks });
     dispatch({ type: 'SORT_TASK' });
@@ -109,12 +118,17 @@ const useToDoState = () => {
     dispatch({ type: 'DELETE_TASK', id });
   };
 
+  const toggleTaskDone = (id: string) => {
+    dispatch({ type: 'TOGGLE_TASK_DONE', id });
+  };
+
+
   const switchSortTask = () => {
     dispatch({ type: 'SWITCH_SORT_TASK' });
     dispatch({ type: 'SORT_TASK' });
   };
 
-  return { state, addTask, startEditTask, finishEditTask, deleteTask, switchSortTask };
+  return { state, addTask, startEditTask, finishEditTask, deleteTask, toggleTaskDone, switchSortTask };
 };
 
 export default useToDoState;
